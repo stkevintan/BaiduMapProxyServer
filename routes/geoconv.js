@@ -1,6 +1,6 @@
 var express = require('express');
 var superagent = require('superagent');
-var accesskey = require('../accesskey');
+var config = require('../config');
 
 var router = express.Router();
 var serviceUrl = 'http://api.map.baidu.com/geoconv/v1/';
@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
   superagent.get(serviceUrl)
     .query({
       'coords': oldX + "," + oldY,
-      'ak': accesskey
+      'ak': config.ak
     })
     .end(function(err, sres) {
       if (err) {
