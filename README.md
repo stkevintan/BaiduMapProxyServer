@@ -1,3 +1,3 @@
 # Baidu_API
-A Map Search Service by Baidu API
+A Simple Baidu Map Search Proxy Service written by Node.js
 
