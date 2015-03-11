@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <form action="/placesearch" method="post">
+    <select name="stype" onselect>
+      <option value="0">
+        城市内检索
+      </option>
+      <option value="1">
+        矩形区域检索
+      </option>
+      <option selected value="2">
+        圆形区域检索
+      </option>
+    </select>
+    <input type="text" name="query" placeholder="查询关键字以$号分割" />
+    <input type="text" name="tag" placeholder="标签以,号分割" />
+    <select name="scope">
+      <option value="1" selected>
+        简略
+      </option>
+      <option value="2">
+        详细
+      </option>
+    </select>
+    <input type="text"  style="display:none" name="filter" placeholder="过滤" />
+    <input type="text" name="page_size" placeholder="分页大小0～20" />
+    <input type="text" name="page_num" placeholder="分页页码" />
+    <input type="text" style="display:none" name="region" placeholder="地区" />
+    <input type="text" name="bounds" style="display:none" placeholder="矩形区域坐标" />
+    <span id="Circle">
+      <input type="text" name="location" placeholder="圆心坐标" />
+      <input type="text" name="radius" placeholder="半径 （米）" />
+    </span>
+    <input type="button" value="提交" />
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      var R = $('input[name="region"]');
+      var B = $('input[name="bounds"]');
+      var C = $('#Circle');
+      var F = $('input[name="filter"]');
+      $('select[name="stype"]').change(function() {
+        var checkValue = $(this).val();
+        if (checkValue == 0) {
+          R.show();
+          B.hide();
+          C.hide();
+        } else if (checkValue == 1) {
+          R.hide();
+          B.show();
+          C.hide();
+        } else {
+          R.hide();
+          B.hide();
+          C.show();
+        }
+      });
+      $('select[name="scope"]').change(function() {
+        var checkValue = $(this).val();
+        if (checkValue == 1) F.hide();
+        else F.show();
+      })
+    })
+  </script>
+</body>
+
+</html>
