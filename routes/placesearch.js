@@ -61,9 +61,9 @@ router.post('/', function(req, res, next) {
         var simpleRes = [];
         text.results.forEach(function(resItem) {
           simpleRes.push({
-            "名称": resItem.name,
-            "经度": resItem.location.lat,
-            "纬度": resItem.location.lng
+            "name": resItem.name,
+            "lat": resItem.location.lat,
+            "lng": resItem.location.lng
           });
         });
         res.send(simpleRes);
