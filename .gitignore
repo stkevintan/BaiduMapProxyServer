@@ -1,0 +1,3 @@
+# ignore mongodb files
+.dbFiles/
+node_modules/

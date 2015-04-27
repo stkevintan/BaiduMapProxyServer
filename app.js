@@ -11,7 +11,7 @@ var users = require('./routes/users');
 //坐标转换
 var geoconv = require('./routes/geoconv');
 //地图搜索
-var placesearch=require('./routes/placesearch');
+var placeSearch=require('./routes/placeSearch');
 //地理转换
 var geocoder=require('./routes/geocoder');
 var app = express();
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/geoconv', geoconv);
-app.use('/placesearch',placesearch);
+app.use('/placeSearch',placeSearch);
 app.use('/geocoder',geocoder);
 
 // catch 404 and forward to error handler

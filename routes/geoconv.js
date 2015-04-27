@@ -6,7 +6,7 @@ var router = express.Router();
 var serviceUrl = 'http://api.map.baidu.com/geoconv/v1/';
 
 router.get('/', function(req, res, next) {
-  res.render('geoconv/index', {
+  res.render('geoconv', {
     title: 'GPS坐标转换百度坐标'
   });
 });

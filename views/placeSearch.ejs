@@ -11,7 +11,7 @@
 
 <body>
   <h1><%= title %></h1>
-  <form action="/placesearch" method="post">
+  <form action="/placeSearch" method="post">
     <select name="stype" onselect>
       <option value="0">
         城市内检索
@@ -51,6 +51,8 @@
       var B = $('input[name="bounds"]');
       var C = $('#Circle');
       var F = $('input[name="filter"]');
+      
+
       $('select[name="stype"]').change(function() {
         var checkValue = $(this).val();
         if (checkValue == 0) {
