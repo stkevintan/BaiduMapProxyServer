@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var psDbDaemon=require('./database/dbDaemon').psDbDaemon;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -70,4 +71,6 @@ app.use(function(err, req, res, next) {
 app.listen(3000, function() {
   console.log('app is running at port 3000');
 });
+// start daemon
+psDbDaemon();
 module.exports = app;

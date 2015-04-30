@@ -1,5 +1,8 @@
 {
     "ak": "ECe416eb3f20923699a8f4c32b1ca653",
     "dbUrl": "mongodb://localhost:27017/sbm",
-    "debugMode":true
+    "debugMode":true,
+    "DaemonInterval":1000,
+    "ResponseTimeOut":2000,
+    "ParallelLimit":5
 }
